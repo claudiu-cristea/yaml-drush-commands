@@ -1,0 +1,6 @@
+testc:
+    description: This is the command
+    tasks:
+        - echo "Hello"
+        - pwd
+
