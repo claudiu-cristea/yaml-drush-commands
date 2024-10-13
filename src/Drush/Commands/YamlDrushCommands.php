@@ -52,8 +52,8 @@ class YamlDrushCommands extends DrushCommands
             );
 
             if ($directories) {
-                $find = (new Finder())->files()->name('/.*\.ya?ml$/')->in($directories);
-                foreach ($find as $file) {
+                $found = (new Finder())->files()->name('/.*\.ya?ml$/')->in($directories);
+                foreach ($found as $file) {
                     $files[] = $file->getRealPath();
                 }
             }
