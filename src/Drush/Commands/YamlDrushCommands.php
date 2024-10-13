@@ -27,6 +27,7 @@ class YamlDrushCommands extends DrushCommands
             $command = new YamlCommand($name);
             $command
                 ->setDescription($definition['description'] ?? '')
+                ->setHelp($definition['help'] ?? '')
                 ->setTasks($definition['tasks'] ?? []);
             $application->add($command);
         }

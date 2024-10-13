@@ -1,13 +1,21 @@
 commands:
     testc:
         description: This is the command
+        help: |
+            This command performs the following:
+              - Greets you
+              - Creates a file.txt
+              - Displays the current directory
         tasks:
             - task: exec
-              exec: pwd
-              output: false
-            - task: exec
-              exec: touch a.txt
+              exec: echo "Hello World!"
             # Shortcut for
-            #   - task: exec
-            #     exec: echo "Hello"
-            - echo "Hello"
+            # - task: exec
+            #   exec: touch file.txt
+            - touch file.txt
+            - task: exec
+              exec: pwd
+            # This command wil show nothing as its output is suppressed
+            - task: exec
+              exec: echo "Bye!"
+              output: false

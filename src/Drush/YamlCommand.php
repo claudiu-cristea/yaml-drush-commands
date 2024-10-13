@@ -57,6 +57,7 @@ class YamlCommand extends Command
     {
         return [
             'output' => true,
+            // @todo Does the Drupal boostrap concept apply for such commands?
             'bootstrap' => DrupalBootLevels::NONE,
         ];
     }

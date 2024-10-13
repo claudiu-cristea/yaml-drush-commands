@@ -15,7 +15,12 @@ The file content:
 ```yaml
 commands:
   say-hello:
-    description: 'This command displays "Hello World!", creates an empty file "file.txt" and displays the current directory'
+    description: 'Greetings, creates a file and and displays the current directory'
+    help: |
+        This command performs the following:
+          - Greets you
+          - Creates a file.txt
+          - Displays the current directory
     tasks:
         - task: exec
           exec: echo "Hello World!"
