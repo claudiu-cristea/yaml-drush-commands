@@ -26,6 +26,7 @@ class YamlDrushCommands extends DrushCommands
         foreach ($commands as $name => $definition) {
             $command = new YamlCommand($name);
             $command
+                ->setAliases($definition['aliases'] ?? [])
                 ->setDescription($definition['description'] ?? '')
                 ->setHelp($definition['help'] ?? '')
                 ->setTasks($definition['tasks'] ?? []);

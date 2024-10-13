@@ -15,6 +15,9 @@ The file content:
 ```yaml
 commands:
   say-hello:
+    aliases:
+      - sh
+      - sayh
     description: 'Greetings, creates a file and and displays the current directory'
     help: |
         This command performs the following:
