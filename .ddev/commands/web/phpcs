@@ -4,4 +4,4 @@
 ## Usage: phpcs
 ## Example: ddev phpcs
 
-composer phpcs
+vendor/bin/phpcs

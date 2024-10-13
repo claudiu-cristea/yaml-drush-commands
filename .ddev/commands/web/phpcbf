@@ -4,4 +4,4 @@
 ## Usage: phpcbf
 ## Example: ddev phpcbf
 
-composer phpcbf
+vendor/bin/phpcbf

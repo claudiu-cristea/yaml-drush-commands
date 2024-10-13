@@ -43,11 +43,6 @@
             "drupal/core-composer-scaffold": true
         }
     },
-    "scripts": {
-        "phpcs": "vendor/bin/phpcs",
-        "phpcbf": "vendor/bin/phpcbf",
-        "phpstan": "vendor/bin/phpstan analyse --level 5 src tests"
-    },
     "extra": {
         "installer-paths": {
             "web/core": [

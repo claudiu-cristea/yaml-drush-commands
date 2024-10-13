@@ -4,4 +4,4 @@
 ## Usage: phpstan
 ## Example: ddev phpstan
 
-composer phpstan
+vendor/bin/phpstan analyse --level 5 src tests
