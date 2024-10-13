@@ -39,6 +39,9 @@ class YamlDrushCommands extends DrushCommands
         }
     }
 
+    /**
+     * @return string[]
+     */
     protected function discoverYamlCommandFiles(): array
     {
         $classLoader = $this->container->get(DependencyInjection::LOADER);

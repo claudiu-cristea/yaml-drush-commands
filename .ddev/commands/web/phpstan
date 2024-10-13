@@ -1,0 +1,7 @@
+#!/bin/bash
+
+## Description: Run static analysis
+## Usage: phpstan
+## Example: ddev phpstan
+
+composer phpstan
