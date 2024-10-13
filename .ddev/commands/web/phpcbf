@@ -1,0 +1,7 @@
+#!/bin/bash
+
+## Description: Resolve fixable coding standards violations
+## Usage: phpcbf
+## Example: ddev phpcbf
+
+vendor/bin/phpcbf

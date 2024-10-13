@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<ruleset name="yaml-drush-commands">
+    <description>Yaml Drush Commands coding standards</description>
+    <rule ref="PSR2"/>
+    <file>src</file>
+    <file>tests</file>
+    <arg name="extensions" value="php,inc"/>
+</ruleset>

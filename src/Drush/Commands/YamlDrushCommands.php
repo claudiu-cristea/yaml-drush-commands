@@ -20,8 +20,7 @@ class YamlDrushCommands extends DrushCommands
     public function __construct(
         #[Autowire(service: 'container')]
         protected DefinitionContainerInterface $container,
-    )
-    {
+    ) {
         parent::__construct();
 
         $commands = [];
@@ -53,7 +52,9 @@ class YamlDrushCommands extends DrushCommands
                 array_map(
                     function (string $directory) use ($relativePath): string {
                         return "$directory/$relativePath";
-                    }, $directories),
+                    },
+                    $directories
+                ),
                 'is_dir',
             );
 
