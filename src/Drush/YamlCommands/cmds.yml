@@ -1,0 +1,13 @@
+commands:
+    testc:
+        description: This is the command
+        tasks:
+            - task: exec
+              exec: pwd
+              output: false
+            - task: exec
+              exec: touch a.txt
+            # Shortcut for
+            #   - task: exec
+            #     exec: echo "Hello"
+            - echo "Hello"
