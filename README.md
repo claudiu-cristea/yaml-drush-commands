@@ -1,4 +1,4 @@
-Place a YAML file under `src/Drush/YamlCommands`, where `src` is PSR-4 mapped director. E.g., is defined under the `autoload.psr-4` in `composer.json`:
+Place a YAML file under `src/Drush/YamlCommands`, where `src` is PSR-4 mapped directory. E.g., is defined under the `autoload.psr-4` in `composer.json`:
 
 ```json
 {
