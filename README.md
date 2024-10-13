@@ -2,13 +2,11 @@ Place a YAML file under `src/Drush/YamlCommands`, where `src` is PSR-4 mapped di
 
 ```json
 {
-    ...
     "autoload": {
         "psr-4": {
             "My\\Custom\\Library\\": "src"
         }
     },
-    ...
 }
 ```
 
