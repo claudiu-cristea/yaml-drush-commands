@@ -33,4 +33,5 @@
     <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHintSpacing">
         <spacesCountBeforeColon>0</spacesCountBeforeColon>
     </rule>
+    <rule ref="SlevomatCodingStandard.Namespaces.UnusedUses"/>
 </ruleset>

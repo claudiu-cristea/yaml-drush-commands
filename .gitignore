@@ -1,4 +1,5 @@
+/.gitattributes
+/.phpunit.result.cache
 /composer.lock
 /vendor/
 /web/
-/.gitattributes

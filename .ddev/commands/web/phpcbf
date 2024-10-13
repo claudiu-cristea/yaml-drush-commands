@@ -4,4 +4,4 @@
 ## Usage: phpcbf
 ## Example: ddev phpcbf
 
-vendor/bin/phpcbf
+vendor/bin/phpcbf "$@"

@@ -6,8 +6,8 @@ commands:
         description: 'Greetings, creates a file and displays the current directory'
         help: |
             This command performs the following:
-              - Greets you
-              - Creates a file.txt
+              - Sends you greetings
+              - Creates a file.txt file
               - Displays the current directory
         tasks:
             - task: exec
@@ -16,8 +16,8 @@ commands:
             # Shortcut for
             # - task: exec
             #   params:
-            #       exec: touch file.txt
-            - touch file.txt
+            #       exec: touch /tmp/file.txt
+            - touch /tmp/file.txt
             - task: exec
               params:
                 exec: pwd

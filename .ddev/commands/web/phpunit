@@ -1,0 +1,7 @@
+#!/bin/bash
+
+## Description: Run PHPUbit tests
+## Usage: phpunit
+## Example: ddev phpunit
+
+vendor/bin/phpunit --no-configuration tests "$@"
