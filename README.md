@@ -18,7 +18,7 @@ commands:
     aliases:
       - sh
       - sayh
-    description: 'Greetings, creates a file and and displays the current directory'
+    description: 'Greetings, creates a file and displays the current directory'
     help: |
         This command performs the following:
           - Greets you
@@ -33,7 +33,7 @@ commands:
         - touch file.txt
         - task: exec
           exec: pwd
-        # This command wil show nothing as its output is suppressed
+        # This command will show nothing as its output is suppressed
         - task: exec
           exec: echo "Bye!"
           output: false
