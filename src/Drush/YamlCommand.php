@@ -26,7 +26,7 @@ class YamlCommand extends Command
         foreach ($this->tasks as $task) {
             if (is_string($task)) {
                 // Syntax sugar for shell commands.
-                $task = ['task' => 'exec', 'exec' => $task];
+                $task = ['task' => 'exec', 'params' => ['exec' => $task]];
             }
             $task += $this->taskDefaults();
 
@@ -35,7 +35,10 @@ class YamlCommand extends Command
             // @todo Convert to a plugin system
             switch ($task['task']) {
                 case 'exec':
-                    $process = Process::fromShellCommandline($task['exec']);
+                    if (!isset($task['params']['exec'])) {
+                        throw new \InvalidArgumentException("The 'exec' task type requires an 'exec' parameter");
+                    }
+                    $process = Process::fromShellCommandline($task['params']['exec']);
                     break;
                 default:
                     throw new \InvalidArgumentException("Unknown task type '{$task['task']}'");

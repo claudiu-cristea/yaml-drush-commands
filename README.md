@@ -26,16 +26,20 @@ commands:
           - Displays the current directory
     tasks:
         - task: exec
-          exec: echo "Hello World!"
+          params:
+              exec: echo "Hello World!"
         # Shortcut for
         # - task: exec
-        #   exec: touch file.txt
+        #   params:
+        #       exec: touch file.txt
         - touch file.txt
         - task: exec
-          exec: pwd
+          params:
+              exec: pwd
         # This command will show nothing as its output is suppressed
         - task: exec
-          exec: echo "Bye!"
+          params:
+              exec: echo "Bye!"
           output: false
   other-cmd:
     description: ...
