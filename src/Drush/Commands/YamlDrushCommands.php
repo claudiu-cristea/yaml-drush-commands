@@ -4,16 +4,23 @@ declare(strict_types=1);
 
 namespace Drush\YamlCommands\Drush\Commands;
 
+use Drush\Commands\AutowireTrait;
 use Drush\Commands\DrushCommands;
 use Drush\Runtime\DependencyInjection;
 use Drush\YamlCommands\Drush\YamlCommand;
-use Robo\Robo;
+use League\Container\DefinitionContainerInterface;
+use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Yaml\Yaml;
 
 class YamlDrushCommands extends DrushCommands
 {
-    public function __construct()
+    use AutowireTrait;
+
+    public function __construct(
+        #[Autowire(service: 'container')]
+        protected DefinitionContainerInterface $container,
+    )
     {
         parent::__construct();
 
@@ -22,7 +29,6 @@ class YamlDrushCommands extends DrushCommands
             $commands += Yaml::parse(file_get_contents($file))['commands'] ?? [];
         }
 
-        $application = Robo::application();
         foreach ($commands as $name => $definition) {
             $command = new YamlCommand($name);
             $command
@@ -30,13 +36,13 @@ class YamlDrushCommands extends DrushCommands
                 ->setDescription($definition['description'] ?? '')
                 ->setHelp($definition['help'] ?? '')
                 ->setTasks($definition['tasks'] ?? []);
-            $application->add($command);
+            $this->container->get('application')->add($command);
         }
     }
 
     protected function discoverYamlCommandFiles(): array
     {
-        $classLoader = Robo::getContainer()->get(DependencyInjection::LOADER);
+        $classLoader = $this->container->get(DependencyInjection::LOADER);
 
         $namespace = 'Drush\YamlCommands';
         $relativePath = str_replace("\\", '/', trim($namespace, '\\'));
