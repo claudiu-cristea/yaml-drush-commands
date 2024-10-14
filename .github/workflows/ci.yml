@@ -20,8 +20,6 @@ jobs:
               run: ddev composer self-update
             - name: composer install
               run: ddev composer install
-            - name: Install Drupsl
-              run: ddev drush si -y
             - name: PHPCS
               run: ddev phpcs
             - name: PHPStan

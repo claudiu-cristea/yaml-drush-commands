@@ -4,21 +4,22 @@ declare(strict_types=1);
 
 namespace Drush\YamlCommands\Drush\Commands;
 
-use Drush\Commands\AutowireTrait;
 use Drush\Commands\DrushCommands;
 use Drush\Runtime\DependencyInjection;
 use Drush\YamlCommands\Drush\YamlCommand;
+use League\Container\Container as DrushContainer;
 use League\Container\DefinitionContainerInterface;
-use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Yaml\Yaml;
 
 class YamlDrushCommands extends DrushCommands
 {
-    use AutowireTrait;
+    public static function createEarly(DrushContainer $container): self
+    {
+        return new self($container);
+    }
 
     public function __construct(
-        #[Autowire(service: 'container')]
         protected DefinitionContainerInterface $container,
     ) {
         parent::__construct();
