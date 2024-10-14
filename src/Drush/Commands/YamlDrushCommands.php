@@ -13,6 +13,8 @@ use Symfony\Component\Yaml\Yaml;
 
 class YamlDrushCommands extends DrushCommands
 {
+    private const string APP = 'application';
+
     public static function createEarly(DefinitionContainerInterface $container): self
     {
         return new self($container);
@@ -35,7 +37,7 @@ class YamlDrushCommands extends DrushCommands
                 ->setDescription($definition['description'] ?? '')
                 ->setHelp($definition['help'] ?? '')
                 ->setTasks($definition['tasks'] ?? []);
-            $this->container->get('application')->add($command);
+            $this->container->get(self::APP)->add($command);
         }
     }
 

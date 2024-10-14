@@ -8,7 +8,7 @@ use Composer\InstalledVersions;
 use Drush\TestTraits\DrushTestTrait;
 use PHPUnit\Framework\TestCase;
 
-class DrushYamlCommandsTest extends TestCase
+class YamlDrushCommandsTest extends TestCase
 {
     use DrushTestTrait;
 

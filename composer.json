@@ -1,5 +1,5 @@
 {
-    "name": "claudiu-cristea/drush-yaml-commands",
+    "name": "claudiu-cristea/yaml-drush-commands",
     "description": "Define Drush commands in YAML files",
     "type": "library",
     "license": "GPL-2.0-or-later",
