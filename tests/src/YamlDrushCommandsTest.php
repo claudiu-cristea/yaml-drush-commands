@@ -30,7 +30,7 @@ class YamlDrushCommandsTest extends TestCase
         $this->drush('sayh');
         $this->assertStringContainsString('Hello World!', $this->getOutput());
         $this->assertFileExists('/tmp/file.txt');
-        $projectDir = realpath(InstalledVersions::getInstallPath('claudiu-cristea/drush-yaml-commands'));
+        $projectDir = realpath(InstalledVersions::getInstallPath('claudiu-cristea/yaml-drush-commands'));
         $this->assertStringContainsString($projectDir, $this->getOutput());
         $this->assertStringNotContainsString('Bye!', $this->getOutput());
     }
