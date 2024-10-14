@@ -7,14 +7,13 @@ namespace Drush\YamlCommands\Drush\Commands;
 use Drush\Commands\DrushCommands;
 use Drush\Runtime\DependencyInjection;
 use Drush\YamlCommands\Drush\YamlCommand;
-use League\Container\Container as DrushContainer;
 use League\Container\DefinitionContainerInterface;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Yaml\Yaml;
 
 class YamlDrushCommands extends DrushCommands
 {
-    public static function createEarly(DrushContainer $container): self
+    public static function createEarly(DefinitionContainerInterface $container): self
     {
         return new self($container);
     }
