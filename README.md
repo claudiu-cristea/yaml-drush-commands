@@ -2,7 +2,7 @@
 
 [![ci](https://github.com/claudiu-cristea/yaml-drush-commands/actions/workflows/ci.yml/badge.svg)](https://github.com/claudiu-cristea/yaml-drush-commands/actions/workflows/ci.yml)
 
-Allows to define Drush command in YAML files (*.yml, *.yaml).
+Allows to define Drush commands in YAML files (*.yml, *.yaml).
 
 ## How it works?
 
