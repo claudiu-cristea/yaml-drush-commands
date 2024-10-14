@@ -4,23 +4,27 @@ declare(strict_types=1);
 
 namespace Drush\YamlCommands\Drush\Commands;
 
+use Drush\Attributes\Bootstrap;
+use Drush\Boot\DrupalBootLevels;
+use Drush\Commands\AutowireTrait;
 use Drush\Commands\DrushCommands;
 use Drush\Runtime\DependencyInjection;
 use Drush\YamlCommands\Drush\YamlCommand;
 use League\Container\DefinitionContainerInterface;
+use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Yaml\Yaml;
 
+#[Bootstrap(level: DrupalBootLevels::NONE)]
 class YamlDrushCommands extends DrushCommands
 {
-    private const string APP = 'application';
+    use AutowireTrait;
 
-    public static function createEarly(DefinitionContainerInterface $container): self
-    {
-        return new self($container);
-    }
+    private const string APP = 'application';
+    private const string CONTAINER = 'container';
 
     public function __construct(
+        #[Autowire(service: self::CONTAINER)]
         protected DefinitionContainerInterface $container,
     ) {
         parent::__construct();
@@ -46,19 +50,17 @@ class YamlDrushCommands extends DrushCommands
      */
     protected function discoverYamlCommandFiles(): array
     {
-        $classLoader = $this->container->get(DependencyInjection::LOADER);
-
-        $namespace = 'Drush\YamlCommands';
-        $relativePath = str_replace("\\", '/', trim($namespace, '\\'));
-
         $files = [];
+        $relativePath = 'Drush/YamlCommands';
+
+        $classLoader = $this->container->get(DependencyInjection::LOADER);
         foreach ($classLoader->getPrefixesPsr4() as $directories) {
             $directories = array_filter(
                 array_map(
                     function (string $directory) use ($relativePath): string {
                         return "$directory/$relativePath";
                     },
-                    $directories
+                    $directories,
                 ),
                 'is_dir',
             );
